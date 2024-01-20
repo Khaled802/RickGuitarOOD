@@ -1,19 +1,32 @@
 package org.example;
 
+import org.example.guitar.Guitar;
+import org.example.guitar.Inventory;
+
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        Inventory inventory = new Inventory();
+        initializeInventory(inventory);
+        Guitar whatErinLikes = new Guitar("", "fender", "Stratocastor",
+                "electric", "Alder", "Alder", 0);
+        Guitar guitar = inventory.search(whatErinLikes);
+        if (guitar != null) {
+            System.out.println("Erin, you might like this " +
+                    guitar.getBuilder() + " " + guitar.getModel() + " " +
+            guitar.getType() + " guitar:\n " +
+                    guitar.getBackWood() + " back and sides,\n " +
+                    guitar.getTopWood() + " top.\nYou can have it for only $" +
+                    guitar.getPrice() + "!");
+        } else {
+            System.out.println("Sorry, Erin, we have nothing for you.");
         }
+    }
+
+    public static void initializeInventory(Inventory inventory) {
+        inventory.addGuitar("V95693",
+                1499.95, "Fender", "Stratocastor",
+                "electric", "Alder", "Alder");
     }
 }

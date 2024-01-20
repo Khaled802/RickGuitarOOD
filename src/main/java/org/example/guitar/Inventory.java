@@ -1,6 +1,9 @@
 package org.example.guitar;
 
+import javax.swing.text.html.Option;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Inventory {
     private List<Guitar> guitars;
@@ -8,13 +11,19 @@ public class Inventory {
     public Inventory(List<Guitar> guitars) {
         this.guitars = guitars.stream().toList();
     }
+    public Inventory() {
+        this.guitars = new ArrayList<>();
+    }
 
-    public void addGuitar(Guitar guitar) {
+    public void addGuitar(String serialNumber, double price,
+                          String builder, String model,
+                          String type, String backWood, String topWood) {
+        Guitar guitar = new Guitar(serialNumber, builder, model, type, backWood, topWood, price);
         guitars.add(guitar);
     }
 
-    public void removeGuitar(Guitar guitar) {
-        guitars.remove(guitar);
+    public Optional<Guitar> getGuitar(String serialNumber) {
+        return guitars.stream().filter(guitar -> guitar.getSerial_number().equals(serialNumber)).findFirst();
     }
 
 
