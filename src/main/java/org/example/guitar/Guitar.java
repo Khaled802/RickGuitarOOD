@@ -5,51 +5,24 @@ import org.example.guitar.props.Type;
 import org.example.guitar.props.Wood;
 
 public class Guitar {
-    private final String serial_number, model;
-    Builder builder;
-    Type type;
-    Wood backWood, topWood;
-    private double price;
+    private final GuitarSpecs guitarSpecs;
+    private final String serial_number;
+    private final double price;
 
-    public Guitar(String serial_number, Builder builder, String model, Type type, Wood backWood, Wood topWood, double price) {
+    public Guitar(String serial_number, double price, GuitarSpecs guitarSpecs) {
         this.serial_number = serial_number;
-        this.builder = builder;
-        this.model = model;
-        this.type = type;
-        this.backWood = backWood;
-        this.topWood = topWood;
+        this.guitarSpecs = guitarSpecs;
         this.price = price;
     }
 
     public String getSerial_number() {
         return serial_number;
     }
-
-    public Builder getBuilder() {
-        return builder;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public Type getType() {
-        return type;
-    }
-
-    public Wood getBackWood() {
-        return backWood;
-    }
-
-    public Wood getTopWood() {
-        return topWood;
+    public GuitarSpecs getGuitarSpecs() {
+        return guitarSpecs;
     }
 
     public double getPrice() {
         return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
     }
 }

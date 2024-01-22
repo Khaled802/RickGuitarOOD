@@ -11,5 +11,10 @@
      - Best using enums
    - No problem if you do some design in making the software work
    - Trying to do too much design before you’ve at least got the basic functionality down can end up being a waste
+   - Class should be:
+     - the name of the class should express it
+     - the class has specific responsibility
+     - Unused properties indicate that the class do more than one job (so you have to think again about the class)
+   - Encapsulate what varies
+     - this protects from repeated code
    
-
