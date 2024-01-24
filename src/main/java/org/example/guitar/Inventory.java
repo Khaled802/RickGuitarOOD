@@ -1,9 +1,5 @@
 package org.example.guitar;
 
-import org.example.guitar.props.Builder;
-import org.example.guitar.props.Type;
-import org.example.guitar.props.Wood;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
