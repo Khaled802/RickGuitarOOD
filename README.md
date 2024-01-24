@@ -18,3 +18,10 @@
    - Encapsulate what varies
      - this protects from repeated code
    - delegate some methods to achieve loosely coupled
+
+
+## Paths
+  - Main code path
+    - /src/main/java/org/example
+  - try the code path
+    - /src/test/java

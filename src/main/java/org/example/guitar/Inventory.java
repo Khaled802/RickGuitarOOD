@@ -24,17 +24,30 @@ public class Inventory {
     }
 
     public Optional<Guitar> getGuitar(String serialNumber) {
+        //  ---- > functional < ------ //
         return guitars.stream().filter(guitar -> guitar.getSerial_number().equals(serialNumber)).findFirst();
+
+        //  ---- > imperative < ------ //
+//        for (Guitar guitar : guitars) {
+//            if (guitar.getSerial_number().equals(serialNumber)) {
+//                return Optional.of(guitar);
+//            }
+//        }
+//        return Optional.empty();
     }
 
 
     public List<Guitar> search(GuitarSpecs searchGuitar) {
-        List<Guitar> matches = new ArrayList<>();
+        //  ---- > functional < ------ //
+        return guitars.stream().filter(guitar -> guitar.getGuitarSpecs().equals(searchGuitar)).toList();
 
-        for (Guitar guitar : guitars) {
-            if (guitar.getGuitarSpecs().equals(searchGuitar))
-                matches.add(guitar);
-        }
-        return matches;
+        //  ---- > imperative < ------ //
+//        List<Guitar> matches = new ArrayList<>();
+//
+//        for (Guitar guitar : guitars) {
+//            if (guitar.getGuitarSpecs().equals(searchGuitar))
+//                matches.add(guitar);
+//        }
+//        return matches;
     }
 }
