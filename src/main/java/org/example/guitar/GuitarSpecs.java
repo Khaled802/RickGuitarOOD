@@ -8,6 +8,7 @@ public record GuitarSpecs(Builder builder, Type type, String model, Wood backWoo
     @Override
     public boolean equals(Object obj) {
         if (!(obj instanceof GuitarSpecs other)) return false;
+        if (obj == this) return true;
         if (!builder.isEqual(other.builder))
             return false;
         if (!type.isEqual(other.type))
