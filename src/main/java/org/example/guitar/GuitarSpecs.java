@@ -4,38 +4,20 @@ import org.example.guitar.props.Builder;
 import org.example.guitar.props.Type;
 import org.example.guitar.props.Wood;
 
-public class GuitarSpecs {
-    private Builder builder;
-    private Type type;
-    private String model;
-    private Wood backWood;
-    private Wood topWood;
-
-    public GuitarSpecs(Builder builder, Type type, String model, Wood backWood, Wood topWood) {
-        this.builder = builder;
-        this.type = type;
-        this.model = model;
-        this.backWood = backWood;
-        this.topWood = topWood;
-    }
-
-    public Builder getBuilder() {
-        return builder;
-    }
-
-    public Type getType() {
-        return type;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public Wood getBackWood() {
-        return backWood;
-    }
-
-    public Wood getTopWood() {
-        return topWood;
+public record GuitarSpecs(Builder builder, Type type, String model, Wood backWood, Wood topWood) {
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof GuitarSpecs other)) return false;
+        if (!builder.isEqual(other.builder))
+            return false;
+        if (!type.isEqual(other.type))
+            return false;
+        if (other.model != null && !other.model.isEmpty() && !model.equals(other.model))
+            return false;
+        if (!backWood.isEqual(other.backWood))
+            return false;
+        if (!topWood.isEqual(other.topWood))
+            return false;
+        return true;
     }
 }

@@ -18,10 +18,10 @@ public class Test1 {
             System.out.println("Erin, you might like these guitars:");
             for (Guitar guitar : guitars) {
                 System.out.println(" We have a " +
-                        guitar.getGuitarSpecs().getBuilder() + " " + guitar.getGuitarSpecs().getModel() + " " +
-                        guitar.getGuitarSpecs().getType() + " guitar:\n " +
-                        guitar.getGuitarSpecs().getBackWood() + " back and sides,\n " +
-                        guitar.getGuitarSpecs().getTopWood() + " top.\n You can have it for only $" +
+                        guitar.getGuitarSpecs().builder() + " " + guitar.getGuitarSpecs().model() + " " +
+                        guitar.getGuitarSpecs().type() + " guitar:\n " +
+                        guitar.getGuitarSpecs().backWood() + " back and sides,\n " +
+                        guitar.getGuitarSpecs().topWood() + " top.\n You can have it for only $" +
                         guitar.getPrice() + "!\n ----");
             }
         } else {
