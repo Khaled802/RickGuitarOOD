@@ -17,4 +17,4 @@
      - Unused properties indicate that the class do more than one job (so you have to think again about the class)
    - Encapsulate what varies
      - this protects from repeated code
-   
+   - delegate some methods to achieve loosely coupled
